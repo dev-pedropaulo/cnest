@@ -111,7 +111,7 @@ Rem ----------------------------------------------------------------------------
 
 :dism-scannow   
 
-Rem Esse bloco cria o .bat que vai rodar o scannow apos a reinicializacao, e tambem vai excluir a tarefa criada.
+Rem Esse bloco cria o .bat que vai rodar o sfc /scannow apos a reinicializacao, e tambem vai excluir a tarefa criada.
 set pathvar="C:\Windows\System32\testebat.bat"
 (
     echo @echo off
@@ -123,8 +123,9 @@ set pathvar="C:\Windows\System32\testebat.bat"
     echo shutdown /r /t 10
 ) > %pathvar%
 
-Rem cria a tarefa para execucao do .bat
-schtasks /create /sc onstart /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /z
+Rem cria a tarefa para execucao do .bat na sessão do usuário e com a interface gráfica visível
+schtasks /create /sc onstart /tn "sfc" /tr "cmd.exe /c C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /it /z
+
 
 Rem Executa os comandos DISM 
 cls
