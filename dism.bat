@@ -4,14 +4,13 @@
     echo @echo off
     echo echo Rodando sfc /scannow.
     echo sfc /scannow
-    echo schtasks /delete /tn "sfc" /f 
     echo O computador vai ser reiniciado em breve 
     echo timeout 10
     echo shutdown /r /t 10
 ) > %pathvar%
 
 Rem cria a tarefa para execucao do .bat
-    schtasks /create /sc onstart /delay 0000:05 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest 
+    schtasks /create /sc once /st 00:00 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /it 
 
 Rem Executa os comandos DISM 
     cls
