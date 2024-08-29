@@ -126,7 +126,7 @@ Rem Esse bloco cria o .bat que vai rodar o scannow apos a reinicializacao, e tam
 ) > %pathvar%
 
 Rem cria a tarefa para execucao do .bat
-    schtasks /create /sc onstart /delay 0000:05 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest 
+    schtasks /create /sc once /st 00:00 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /it
 
 Rem Executa os comandos DISM 
     cls
