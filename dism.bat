@@ -10,7 +10,7 @@
 ) > %pathvar%
 
 Rem cria a tarefa para execucao do .bat
-    schtasks /create /sc once /st 00:00 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /it 
+    schtasks /create /sc once /st 00:00 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /it 
 
 Rem Executa os comandos DISM 
     cls
