@@ -124,7 +124,7 @@ set pathvar="C:\Windows\System32\testebat.bat"
 ) > %pathvar%
 
 Rem cria a tarefa para execucao do .bat na sessão do usuário e com a interface gráfica visível
-schtasks /create /sc onstart /tn "sfc" /tr "cmd.exe /c C:\Windows\System32\testebat.bat" /f /rl highest /delay 0000:10 /it /z
+schtasks /create /sc once /st 00:00 /tn "sfc" /tr "C:\Windows\System32\testebat.bat" /f /rl highest /it
 
 
 Rem Executa os comandos DISM 
